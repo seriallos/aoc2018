@@ -1,0 +1,11 @@
+Advent of Code 2018 Solutions
+=============================
+
+Look at my hastily written, non-optimal NodeJS solutions here.
+
+```
+yarn install
+
+cd day1
+node solve.js
+```
