@@ -12,6 +12,8 @@ const main = async () => {
 
   const test = 'abBA';
 
+  const inverseCase = ch => ch.match(/[a-z]/) ? _.toUpper(ch) : _.toLower(ch);
+
   let range = 'abcdefghijklmnopqrstuvwxyz';
   _.each(range, removeChar => {
     const charRemoved = lines[0].replace(new RegExp(removeChar, 'gi'), '');
@@ -23,7 +25,7 @@ const main = async () => {
         prev = char;
         output.push(char);
       } else {
-        if (prev !== char && _.toUpper(prev) === _.toUpper(char)) {
+        if (prev === inverseCase(char)) {
           output.pop();
           prev = output[output.length - 1];
         } else {
