@@ -32,8 +32,15 @@ const main = async () => {
     yMax: -Infinity,
   };
 
+  // real data
   const lines = rawLines;
-  //const lines = test;
+  const thresholdDist = 10000;
+
+  /*
+  // test data
+  const thresholdDist = 32;
+  const lines = test;
+  */
 
   _.each(lines, (line, idx) => {
     const [, xraw, yraw] = line.match(/(\d+), (\d+)/);
@@ -62,9 +69,6 @@ const main = async () => {
     return Math.abs(ax - bx) + Math.abs(ay - by);
   };
 
-
-  const thresholdDist = 10000;
-  //const thresholdDist = 10000;
 
   let withinThresh = 0;
 
@@ -96,12 +100,17 @@ const main = async () => {
           minDist = distTo;
         }
       });
+      if (tie) {
+      } else if (!onEdge) {
+        coordCounts[closestIdx]++;
+      }
       if (totalDist < thresholdDist) {
         withinThresh++;
       }
     }
   }
-  console.log(withinThresh);
+  console.log('Part 1:', _.max(coordCounts.sort()));
+  console.log('Part 2:', withinThresh);
 
   console.log('done');
 };
