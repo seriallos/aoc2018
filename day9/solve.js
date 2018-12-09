@@ -18,14 +18,14 @@ class Node {
   }
 }
 
+// not really a real doublylinkedlist, this is custom for the marble game
 class DoublyLinkedList {
   constructor() {
-    this.size = 0;
     this.current = null;
   }
   addMarble(value) {
     const node = new Node(value);
-    if (this.size === 0) {
+    if (this.current === null) {
       node.next = node;
       node.previous = node;
       this.current = node;
@@ -40,7 +40,6 @@ class DoublyLinkedList {
 
       this.current = node;
     }
-    this.size++;
   }
   remove() {
     let remove = this.current;
@@ -53,8 +52,6 @@ class DoublyLinkedList {
     remove.next.previous = remove.precious;
 
     this.current = remove.next;
-
-    this.size--;
 
     return remove.value;
   }
