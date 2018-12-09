@@ -49,7 +49,7 @@ class DoublyLinkedList {
     }
 
     remove.previous.next = remove.next;
-    remove.next.previous = remove.precious;
+    remove.next.previous = remove.previous;
 
     this.current = remove.next;
 
