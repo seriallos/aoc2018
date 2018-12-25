@@ -17,7 +17,7 @@
 12 bani 1 16777215 1    # r1 = r1 & 16777215
 13 gtir 256 3 4         # if r3 > 256
 14 addr 4 2 2              # then goto 17, else goto 16
-15 addi 2 1 2           # skip next
+15 addi 2 1 2           #
 16 seti 27 . 2          # goto 28
 
 17 seti 0 . 4           # r4 = 0
@@ -33,6 +33,7 @@
 
 26 setr 4 . 3           # r3 = r4
 27 seti 7 . 2           # goto 8
+
 28 eqrr 1 0 4           # if r1 == r0
 29 addr 4 2 2             # then halt, else next line
-30 seti 5 . 2           # goto 5
+30 seti 5 . 2           # goto 6
